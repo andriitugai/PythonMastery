@@ -61,13 +61,12 @@ def main(argv):
     # save images to the new folder.
 
     for filename in os.listdir(input_dir):
-        print(input_dir+filename)
-
+        
         if filename[-3:] == 'jpg':
-            new_name = filename[:-3]+'png'
+            new_name = os.path.splitext(filename)[0]
 
-            img = Image.open(input_dir+filename)
-            img.save(output_dir + new_name,'png')
+            img = Image.open(f'{input_dir}{filename}')
+            img.save(f'{output_dir}{new_name}.png','png')
 
 
 
